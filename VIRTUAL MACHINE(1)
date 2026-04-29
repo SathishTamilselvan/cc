@@ -1,4 +1,4 @@
-lc;
+clc;
 clear;
 numVMs = 5;
 cpu_cores = 2;      % Number of CPU cores
