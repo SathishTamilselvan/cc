@@ -1,0 +1,16 @@
+clc;
+clear;
+numCloudlets = 6;
+cloudlet_length_min = 1000;   
+cloudlet_length_max = 5000;   
+file_size = 300;            
+output_size = 300;           
+Cloudlets = zeros(numCloudlets,4);
+for i = 1:numCloudlets
+    length = randi([cloudlet_length_min cloudlet_length_max]);
+    Cloudlets(i,:) = [i length file_size output_size];
+end
+disp('----- CLOUDLETS CREATED -----');
+disp('ID   Length(MI)   FileSize   OutputSize');
+disp(Cloudlets);
+disp('Cloudlets Successfully Created');
