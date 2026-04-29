@@ -1,0 +1,14 @@
+lc;
+clear;
+numVMs = 5;
+cpu_cores = 2;      % Number of CPU cores
+ram = 4096;         % RAM in MB
+bandwidth = 1000;   % Bandwidth in Mbps
+VMs = zeros(numVMs,4);
+for i = 1:numVMs
+    VMs(i,:) = [i cpu_cores ram bandwidth];
+end
+disp('----- VIRTUAL MACHINES CREATED -----');
+disp('VM_ID   CPU   RAM(MB)   BW(Mbps)');
+disp(VMs);
+disp('Virtual Machines Successfully Created');
