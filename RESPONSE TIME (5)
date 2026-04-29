@@ -1,0 +1,25 @@
+clc;
+clear;
+Cloudlets = [
+    1 0 4;
+    2 1 3;
+    3 2 5;
+    4 3 2
+];
+numCloudlets = size(Cloudlets,1);
+ResponseTime = zeros(numCloudlets,1);
+TurnaroundTime = zeros(numCloudlets,1);
+currentTime = 0;
+for i = 1:numCloudlets
+    arrival = Cloudlets(i,2);
+    exec = Cloudlets(i,3);
+    startTime = max(currentTime, arrival);
+    finishTime = startTime + exec; 
+    ResponseTime(i) = startTime - arrival;
+    TurnaroundTime(i) = finishTime - arrival;
+    currentTime = finishTime;
+end
+disp('----- RESPONSE & TURNAROUND TIME -----');
+disp('Cloudlet_ID   Response_Time   Turnaround_Time');
+disp([Cloudlets(:,1) ResponseTime TurnaroundTime]);
+disp('Calculation Completed Successfully');
