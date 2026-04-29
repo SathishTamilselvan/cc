@@ -1,0 +1,25 @@
+clc;
+clear;
+VMs = [
+    1 0;
+    2 0;
+    3 0
+];
+Cloudlets = [2000 3000 1500 4000 2500 1800];
+numCloudlets = length(Cloudlets);
+Allocation = zeros(numCloudlets,2);
+for i = 1:numCloudlets
+    % Find VM with minimum load
+    [~, vmIndex] = min(VMs(:,2));
+    % Allocate cloudlet
+    Allocation(i,:) = [i VMs(vmIndex,1)];
+    % Update VM load
+    VMs(vmIndex,2) = VMs(vmIndex,2) + Cloudlets(i);
+end
+disp('----- LOAD BALANCING RESULT -----');
+disp('Cloudlet_ID   VM_ID');
+disp(Allocation);
+disp('Final VM Loads');
+disp('VM_ID   Load(MI)');
+disp(VMs);
+disp('Load Balancing Completed Successfully');
